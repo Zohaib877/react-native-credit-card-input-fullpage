@@ -147,62 +147,47 @@ const POSTAL_CODE_INPUT_WIDTH = 120 // https://github.com/yannickcr/eslint-plugi
 		} = this.props
 
 		return (
-			<View style={s.container}>
-				<CreditCard
-					focused={focused}
-					brand={type}
-					scale={cardScale}
-					fontFamily={cardFontFamily}
-					imageFront={cardImageFront}
-					imageBack={cardImageBack}
-					name={requiresName ? name : ' '}
-					number={number}
-					expiry={expiry}
-					cvc={cvc}
-					// placeholder={cardViewProps.placeholder}
-				/>
-				<ScrollView
-					ref="Form"
-					horizontal={false}
-					keyboardShouldPersistTap="always"
-					scrollEnabled={false}
-					showsHorizontalScrollIndicator={false}
-					style={s.form}
-				>
-					<CCInput
-						{...this._inputProps('number')}
-						containerStyle={[
-							s.inputContainer,
-							inputContainerStyle,
-							{
-								flex: 1,
-								flexDirection: 'row',
-								justifyContent: 'space-between',
-								borderTopWidth: 1,
-								borderBottomWidth: 1,
-								borderColor: '#e3e3e3',
-								width: CARD_NUMBER_INPUT_WIDTH
-							}
-						]}
+			<ScrollView>
+				<View style={s.container}>
+					<CreditCard
+						focused={focused}
+						brand={type}
+						scale={cardScale}
+						fontFamily={cardFontFamily}
+						imageFront={cardImageFront}
+						imageBack={cardImageBack}
+						name={requiresName ? name : ' '}
+						number={number}
+						expiry={expiry}
+						cvc={cvc}
+						// placeholder={cardViewProps.placeholder}
 					/>
-					<CCInput
-						{...this._inputProps('expiry')}
-						containerStyle={[
-							s.inputContainer,
-							inputContainerStyle,
-							{
-								flex: 1,
-								flexDirection: 'row',
-								justifyContent: 'space-between',
-								borderBottomWidth: 1,
-								borderColor: '#e3e3e3',
-								width: CARD_NUMBER_INPUT_WIDTH
-							}
-						]}
-					/>
-					{requiresCVC && (
+					<ScrollView
+						ref="Form"
+						horizontal={false}
+						keyboardShouldPersistTap="always"
+						scrollEnabled={false}
+						showsHorizontalScrollIndicator={false}
+						style={s.form}
+					>
 						<CCInput
-							{...this._inputProps('cvc')}
+							{...this._inputProps('number')}
+							containerStyle={[
+								s.inputContainer,
+								inputContainerStyle,
+								{
+									flex: 1,
+									flexDirection: 'row',
+									justifyContent: 'space-between',
+									borderTopWidth: 1,
+									borderBottomWidth: 1,
+									borderColor: '#e3e3e3',
+									width: CARD_NUMBER_INPUT_WIDTH
+								}
+							]}
+						/>
+						<CCInput
+							{...this._inputProps('expiry')}
 							containerStyle={[
 								s.inputContainer,
 								inputContainerStyle,
@@ -216,44 +201,61 @@ const POSTAL_CODE_INPUT_WIDTH = 120 // https://github.com/yannickcr/eslint-plugi
 								}
 							]}
 						/>
-					)}
-					{requiresName && (
-						<CCInput
-							{...this._inputProps('name')}
-							keyboardType="default"
-							containerStyle={[
-								s.inputContainer,
-								inputContainerStyle,
-								{
-									flex: 1,
-									flexDirection: 'row',
-									justifyContent: 'space-between',
-									borderBottomWidth: 1,
-									borderColor: '#e3e3e3',
-									width: CARD_NUMBER_INPUT_WIDTH
-								}
-							]}
-						/>
-					)}
-					{requiresPostalCode && (
-						<CCInput
-							{...this._inputProps('postalCode')}
-							containerStyle={[
-								s.inputContainer,
-								inputContainerStyle,
-								{
-									flex: 1,
-									flexDirection: 'row',
-									justifyContent: 'space-between',
-									borderBottomWidth: 1,
-									borderColor: '#e3e3e3',
-									width: CARD_NUMBER_INPUT_WIDTH
-								}
-							]}
-						/>
-					)}
-				</ScrollView>
-			</View>
+						{requiresCVC && (
+							<CCInput
+								{...this._inputProps('cvc')}
+								containerStyle={[
+									s.inputContainer,
+									inputContainerStyle,
+									{
+										flex: 1,
+										flexDirection: 'row',
+										justifyContent: 'space-between',
+										borderBottomWidth: 1,
+										borderColor: '#e3e3e3',
+										width: CARD_NUMBER_INPUT_WIDTH
+									}
+								]}
+							/>
+						)}
+						{requiresName && (
+							<CCInput
+								{...this._inputProps('name')}
+								keyboardType="default"
+								containerStyle={[
+									s.inputContainer,
+									inputContainerStyle,
+									{
+										flex: 1,
+										flexDirection: 'row',
+										justifyContent: 'space-between',
+										borderBottomWidth: 1,
+										borderColor: '#e3e3e3',
+										width: CARD_NUMBER_INPUT_WIDTH
+									}
+								]}
+							/>
+						)}
+						{requiresPostalCode && (
+							<CCInput
+								{...this._inputProps('postalCode')}
+								containerStyle={[
+									s.inputContainer,
+									inputContainerStyle,
+									{
+										flex: 1,
+										flexDirection: 'row',
+										justifyContent: 'space-between',
+										borderBottomWidth: 1,
+										borderColor: '#e3e3e3',
+										width: CARD_NUMBER_INPUT_WIDTH
+									}
+								]}
+							/>
+						)}
+					</ScrollView>
+				</View>
+			</ScrollView>
 		)
 	}
 }
@@ -261,18 +263,18 @@ const POSTAL_CODE_INPUT_WIDTH = 120 // https://github.com/yannickcr/eslint-plugi
 CreditCardInput.defaultProps = {
 	cardViewSize: {},
 	labels: {
-		name: "Cardholder's name",
-		number: 'Card Number',
-		expiry: 'Expiry',
+		name: 'Nombre',
+		number: 'Número de tarjeta',
+		expiry: 'Expiración',
 		cvc: 'CVC',
-		postalCode: 'Postal Code'
+		postalCode: 'Código postal'
 	},
 	placeholders: {
-		name: 'Full Name',
-		number: '1234 5678 1234 5678',
-		expiry: 'MM/YY',
+		name: 'Nombre del tarjetahabiente',
+		number: '**** **** **** ****',
+		expiry: 'MM/AA',
 		cvc: 'CVC',
-		postalCode: '34567'
+		postalCode: '0000'
 	},
 	inputContainerStyle: {},
 	validColor: '',
