@@ -96,7 +96,7 @@ const s = StyleSheet.create({
 		name: '',
 		placeholder: {
 			number: '•••• •••• •••• ••••',
-			name: 'FULL NAME',
+			name: 'Nombre completo',
 			expiry: '••/••',
 			cvc: '•••'
 		},
@@ -176,10 +176,11 @@ const s = StyleSheet.create({
 								{ fontFamily },
 								s.expiryLabel,
 								s.placeholder,
-								focused === 'expiry' && s.focused
+								focused === 'expiry' && s.focused,
+								{ fontSize: 13 }
 							]}
 						>
-							{placeholder.monthYear ? placeholder.monthYear : 'MONTH/YEAR'}
+							{placeholder.monthYear ? placeholder.monthYear : 'MES/AÑO'}
 						</Text>
 						<Text
 							style={[
