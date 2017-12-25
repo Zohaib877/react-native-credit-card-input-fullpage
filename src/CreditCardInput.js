@@ -20,7 +20,8 @@ const s = StyleSheet.create({
 		alignItems: 'center'
 	},
 	form: {
-		marginTop: 20
+		marginTop: 20,
+		marginHorizontal: 20
 	},
 	inputContainer: {},
 	inputLabel: {
@@ -179,7 +180,7 @@ const POSTAL_CODE_INPUT_WIDTH = 120 // https://github.com/yannickcr/eslint-plugi
 									flex: 1,
 									flexDirection: 'row',
 									justifyContent: 'space-between',
-									borderTopWidth: 1,
+									borderTopWidth: 0,
 									borderBottomWidth: 1,
 									borderColor: '#e3e3e3',
 									width: CARD_NUMBER_INPUT_WIDTH

@@ -101,7 +101,7 @@ const s = StyleSheet.create({
 			cvc: '•••'
 		},
 
-		scale: 1,
+		scale: 0.9,
 		fontFamily: Platform.select({ ios: 'Courier', android: 'monospace' }),
 		imageFront: require('../images/card-front.png'),
 		imageBack: require('../images/card-back.png')
